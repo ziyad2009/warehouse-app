@@ -1,26 +1,47 @@
 @import "tailwindcss";
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .app-bg {
+    @apply min-h-screen bg-zinc-900 text-white;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .container-mobile {
+    @apply mx-auto w-full max-w-md px-4 py-6;
+  }
+
+  .card {
+    @apply rounded-2xl bg-neutral-900/60 border border-white/10 shadow-lg;
+  }
+
+  .card-body {
+    @apply p-4;
+  }
+
+  .label {
+    @apply block text-sm text-white/80 mb-1;
+  }
+
+  .input {
+    @apply w-full rounded-xl bg-zinc-900/60 border border-white/10 px-3 py-2 text-white
+           placeholder:text-white/40 outline-none
+           focus:border-blue-500/60 focus:ring-4 focus:ring-blue-500/15;
+  }
+
+  .btn {
+    @apply w-full rounded-xl bg-white text-black py-2.5 font-semibold
+           active:scale-[0.99] transition;
+  }
+
+  .btn-dark {
+    @apply w-full rounded-xl bg-black/70 border border-white/10 text-white py-2.5 font-semibold
+           hover:bg-black/80 active:scale-[0.99] transition;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full bg-emerald-500/15 text-emerald-200
+           border border-emerald-400/20 px-3 py-1 text-sm;
+  }
 }
